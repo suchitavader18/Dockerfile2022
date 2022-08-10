@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+    flask-app:
+        container_name: flask-app
+        build: app
+        restart: always
+        ports:
+            - '5000:5000'
+        networks:
+            - backend
+
+    mysql-db:
+        container_name: mysql-db
+        image: mysql:5.7
+        restart: always
+        ports:
+            - '3308:3306'
+        networks:
+            - backend
+
+        
